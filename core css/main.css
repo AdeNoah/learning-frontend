@@ -1,0 +1,219 @@
+/* this thing called resetting */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* the basic layout of the the page */
+
+/* general body styles */
+body {
+    background: #326496;
+    height: auto;
+    width: 100vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* lets start from the head */
+
+.header {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 0 20px ;
+}
+
+header > a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+header > a:hover {
+    font-size: 2em;
+}
+
+ /* working on that thing called the navigation bar, or is it a navigation menu */
+
+ .navigation {
+    background: rgba(0, 0, 0, 0.85);
+    height: auto;
+    padding:20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+}
+
+/* nav links in the menu */
+ nav > div > a {
+    color: #fff;
+    text-decoration: none;
+    padding: 20px;
+
+}
+
+nav > div > a:hover {
+    background: rgba(200, 200, 200, 0.2);
+    border-radius: 8%;
+    font-size: 1.5em;font-weight: bold;
+    transition: ease-in-out 0.5s
+}
+
+/* now, the part called the content */
+
+.main {
+    height: auto;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 3px solid #326496;
+}
+
+/* .info {
+    
+} */
+
+.feed {
+    background: rgba(0, 0, 0, 0.3);
+    margin: 15px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.feed-header {
+    margin-bottom: 10px;
+    display: flex;
+    
+}
+
+.feed-header-link, a {
+    color: aqua;
+    text-decoration: none;
+    transition: ease-in-out 0.5s;
+
+}
+
+.feed-header-link a:hover {
+    font-size: 1.25em;
+}
+
+main > div > div > div > a > img {
+    width: 65px;
+    height: 65px;
+    border: 4px solid rgba(225, 225, 225, 0.55);
+    border-radius: 50%;
+    margin-right: 50px;
+}
+
+.text-part {
+    font-size: 1.1em;
+}
+
+/* from head to footer */
+.footer {
+    background: rgba(0, 0, 0, 0.85);
+    
+    /* creating another grid for the footer */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 15px;
+}
+
+.footer-topic {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.contact, .about, .support {
+    color: aqua;
+    padding: 5px;
+}
+
+
+
+/* now to test some responsiveness also known as media */
+
+/* small screen sizes ie phone screens */
+
+
+@media (min-width:22.5rem) {
+    header > a{
+        text-align: center;
+    }
+
+    .navigation {
+        flex-direction: column;
+        position: static;
+    }
+    nav > div > a {
+        padding: 10px;
+        display: block;
+    }
+    .footer {
+        display: block;
+    }
+}
+
+@media (min-width:30.0625rem) {
+    header > a{
+        text-align: start;
+    }
+
+    .navigation {
+        flex-direction: row;
+        position: sticky;
+        top: 0;
+    }
+    nav > div > a {
+        padding: 10px;
+
+    }
+    .footer {
+        display: block;
+    }
+}
+
+
+@media (min-width:48.0625rem) {
+    header > a{
+        text-align: start;
+    }
+
+    .navigation {
+        flex-direction: row;
+        position: sticky;
+        top: 0;
+    }
+    nav > div > a {
+        padding: 10px;
+    }
+    .footer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 15px;
+    }
+}
+
+
+@media (min-width:64.0625rem) {
+    header > a{
+        text-align: start;
+    }
+
+    .navigation {
+        flex-direction: row;
+        position: sticky;
+        top: 0;
+    }
+    nav > div > a {
+        padding: 10px;
+    }
+    .footer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 15px;
+    }
+}
