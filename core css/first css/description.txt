@@ -1,0 +1,2 @@
+my first attempt at css
+here I tried binding all the concepts I had learnt in css 
