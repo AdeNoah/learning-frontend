@@ -1,0 +1,203 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    text-align: center;
+}
+
+body {
+    /* width: 376px; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* styles for the topmost banner */
+
+.general-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.general-banner > h1 {
+    color: blue;
+    padding-left: 10px;
+}
+
+.general-banner > ul {
+    display: flex;
+    padding-right: 20px;
+}
+.general-banner > ul > li {
+    list-style-type: none;
+    margin-left: 20px;
+}
+
+/* now, here to the navigation bar */
+
+.navigation-bar > ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+.navigation-bar > ul > li {
+    padding: 10px;
+    font-size: 20px;
+}
+
+/* this part is for the post banner or personal banner */
+
+.personal-banner {
+    font-size: 30px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+/* .personal-facebook-post {} */
+.personal-facebook-post-input {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 20px;
+    justify-self: center;
+}
+
+
+
+/* the stories strip, its time for the magic */
+
+.stories-strip {
+    padding: 5px;
+    display: flex;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+}
+.stories-strip::-webkit-scrollbar{
+    display: none;
+}
+
+
+/* then the cards in the stories strip */
+.create-own-story, .view-own-story, .view-friends-story {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0px 4px;
+    padding: 0;
+    min-width: 125px;
+    max-width: 126px;
+    min-height: 170px;
+    max-height: 171px;
+    background-color: rgb(174, 174, 174);
+    box-shadow: 10 black;
+}
+/* the card for creating ones personal stories */
+.create-own-story > .create-own-story-image {
+    padding: 0;
+    margin: 0;
+}
+.create-own-story > .create-own-story-profile-picture > .create-own-story-image {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.create-own-story > .create-own-story-extra > a > i {
+    position: relative;
+    top: -20px;
+    font-size: 30px;
+    border-radius: 50%;
+    color: blue;
+    background-color: white;
+}
+.create-own-story > .create-own-story-extra > p {
+    position: relative;
+    bottom: 15px;
+}
+
+/* then the profile pictures in the cards */
+.view-own-story > img, .view-friends-story > img {
+    width: 35px;
+    border-radius: 50%;
+    position: relative;
+    top: 10px;
+    /* left: -35px; */
+}
+/* okay the text now */
+.view-own-story > p, .view-friends-story > p {
+    position: relative;
+    bottom: -90px;
+}
+.view-friends-story > p {
+    margin-bottom: 20px;
+}
+
+/* now the feed or the news feed or the posts, whatever it is called */
+
+.feed-card-details{
+    display: flex;
+    justify-content: space-between;
+}
+
+.feed-card-details-info {
+    display: flex;
+    justify-content: space-between;
+}
+.feed-profile-picture {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.feed-name {
+    margin-left: 10px;
+}
+.follow {
+    padding-left: 10px;
+}
+
+.controls {
+    padding-right: 20px ;
+}
+
+.feed-content {
+    margin: 0px 10px;
+}
+.feed-image > img {
+    width: 100%;
+    height: 50%;
+}
+.feed-reactions-reports {
+    display: flex;
+    justify-content: space-evenly;
+}
+hr {
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reactions-panel {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.reactions-panel > i {
+    font-size: 25px;
+}
+.reactions-panel > i:hover {
+    cursor: pointer;
+}
+
+
+
+/* time for the responsive css, the media queries
+@media screen and(min-width: 376px) {
+    html {
+        text-align: center;
+        width: 376px;
+    }
+    body {
+        width: 376px;
+    }
+} */
