@@ -1,1 +1,2 @@
-
+learning javascript 
+traditional start with a todo list app
