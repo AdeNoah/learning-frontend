@@ -102,10 +102,9 @@ controlsElement.appendChild(nextButton)
 
 
 // to display the questions
-function generateQuestions() {
+function generateQuestion() {
     // to load the first question on clicking the start quiz button
-    currentQuestion = currentQuestion + 1;
-    currentQuestion = questionBank[currentQuestion];
+    currentQuestion = questionBank[0];
     let question = currentQuestion.question;
     questionNumber;
     let questionSentence = document.createElement('p');
@@ -129,25 +128,7 @@ function generateQuestions() {
             answerElement.appendChild(label);
         }
     }
-
-    
-    // now to be able to load all other questions other than the first question only 
-    function previousQuestion() {
-        if(currentQuestion > 0) {
-            currentQuestion--;
-            questionNumber--;
-        }
-    }
-    previousButton.addEventListener('click', previousQuestion)
-    function nextQuestion() {
-        if(currentQuestion < questionBank.length - 1) {
-            currentQuestion++;
-            questionNumber++;
-        }
-    }
-    nextButton.addEventListener('click', nextQuestion)
 }
-
 // to start the quiz logic and its event
 function startQuiz(){
     quizContainer.appendChild(questionElement);
