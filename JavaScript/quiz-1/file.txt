@@ -73,7 +73,7 @@ questionBank = [
 
 
 
-i need to start the quiz, display the questions, remove the button, accept answer, crosscheck if the answer is correct and save a it as the score else show the mark thecorrect answer, next ensure i can move to the next or previous question, also ensure that i can submit the quiz when i am done so i could get my results, finally print out or display the result of the test taker. simple enough...
+i need to start the quiz, display the questions, remove the button, accept answer, crosscheck if the answer is correct and save a it as the score else show the mark thecorrect answer, next ensure i can move to the next or previous question, also ensure that i can submit the quiz when i am done so i could get my results, finally print out or display the result of the test taker. simple enough hopefully...
 
 
 for the javascript, there are a few steps i will like to highlight, they are:
