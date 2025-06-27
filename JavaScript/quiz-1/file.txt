@@ -86,3 +86,27 @@ for the javascript, there are a few steps i will like to highlight, they are:
 3. create a loadNext function and a loadPrevious function and hook them via eventListener to next and previous buttons respectively, this will allow to go through the questions efficiently 
 
 4. create a submit button to finally add everything up and give a result of the just taken quiz. here we get the list of questions, their answers the ones we got wrong, the summary of the quiz/result and there will also be a restart button to restart the quiz.
+
+
+
+
+
+
+
+
+answerElement.innerHTML = '';
+for(let key in currentQuestion) {
+    if(key.startsWith('option')) {
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'options';
+        input.id = 'key' ;
+        input.value = key;
+
+        const label = document.createElement('label')
+        label.setAttribute('for', key);
+        label.innerText = currentQuestion[key];
+        answerElement.appendChild(input);
+        answerElement.appendChild(label);
+    }
+}

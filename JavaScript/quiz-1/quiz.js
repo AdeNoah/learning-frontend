@@ -74,8 +74,8 @@ let questionBank = [
 const quizContainer = document.querySelector('#quiz-container');
 const startQuizBtn = document.querySelector('#initiate');
 
-let currentQuestion = 0;
-let questionNumber = 0;
+let currentQuestion;
+let questionIndex = 0;
 let score = 0;
 
 // to create the question element and the answer elements and the controls element
@@ -86,6 +86,7 @@ let answerElement = document.createElement('div');
 answerElement.classList.add('answer-element');
 
 let controlsElement = document.createElement('div');
+controlsElement.classList.add('controls')
 
 const previousButton = document.createElement('button');
 previousButton.classList.add('previous-button');
@@ -97,51 +98,39 @@ nextButton.classList.add('next-button');
 nextButton.innerText = `\u2192`;
 controlsElement.appendChild(nextButton)
 
-/* 
-*/
-
 
 // to display the questions
 function generateQuestion() {
-    // to load the first question on clicking the start quiz button
-    currentQuestion = questionBank[0];
-    let question = currentQuestion.question;
-    questionNumber;
-    let questionSentence = document.createElement('p');
-    questionSentence.innerText = `${questionNumber}. ${question}`;
-    questionElement.appendChild(questionSentence);
-    // this one is like... bound to thw first question only 
-    // to display the options or answers to the question 
+    questionElement.innerHTML = '';
     answerElement.innerHTML = '';
-    for(let key in currentQuestion) {
-        if(key.startsWith('option')) {
-            const input = document.createElement('input');
-            input.type = 'radio';
-            input.name = 'options';
-            input.id = 'key' ;
-            input.value = key;
     
-            const label = document.createElement('label')
-            label.setAttribute('for', key);
-            label.innerText = currentQuestion[key];
-            answerElement.appendChild(input);
-            answerElement.appendChild(label);
-        }
-    }
+    currentQuestion = questionBank[questionIndex];
+
+    // to generate the question number 
+    let questionNumber = document.createElement('span');
+    questionNumber.innerText =  questionIndex + 1;
+
+    // to generate the question sentence
+    let questionStatement = document.createElement('p');
+    questionStatement.innerText = `${currentQuestion.question}`;
+
+    questionElement.appendChild(questionNumber);
+    questionElement.appendChild(questionStatement);
 }
+
+
 // to start the quiz logic and its event
 function startQuiz(){
     quizContainer.appendChild(questionElement);
     quizContainer.appendChild(answerElement);
     quizContainer.appendChild(controlsElement);
     
-    generateQuestions();
-        
+    generateQuestion()
+
     startQuizBtn.setAttribute('disabled', 'true');
     startQuizBtn.style.display = 'none';
-
 }
-startQuizBtn.addEventListener('click', startQuiz)
+startQuizBtn.addEventListener('click', startQuiz())
 
 // to actually load the previous or next questions by using the control buttons in the controlsElement
 
