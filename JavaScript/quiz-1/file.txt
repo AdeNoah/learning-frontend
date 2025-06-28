@@ -110,3 +110,4 @@ for(let key in currentQuestion) {
         answerElement.appendChild(label);
     }
 }
+

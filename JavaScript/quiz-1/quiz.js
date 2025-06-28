@@ -75,7 +75,7 @@ const quizContainer = document.querySelector('#quiz-container');
 const startQuizBtn = document.querySelector('#initiate');
 
 let currentQuestion;
-let questionIndex = 0;
+let questionIndex = 2;
 let score = 0;
 
 // to create the question element and the answer elements and the controls element
@@ -116,6 +116,27 @@ function generateQuestion() {
 
     questionElement.appendChild(questionNumber);
     questionElement.appendChild(questionStatement);
+    
+
+    // to generate the options
+    answerElement.innerHTML = '';
+    
+    for(let key in currentQuestion){
+        if(key.startsWith('option')){
+            const option = document.createElement('input')
+            option.type = 'radio';
+            option.name = 'options';
+            option.id = key;
+            option.value = key;
+
+            const label = document.createElement('label');
+            label.setAttribute('for', key);
+            label.innerText =  currentQuestion[key];
+
+            answerElement.appendChild(option);
+            answerElement.appendChild(label);
+        }
+    }
 }
 
 
