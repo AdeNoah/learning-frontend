@@ -75,7 +75,7 @@ const quizContainer = document.querySelector('#quiz-container');
 const startQuizBtn = document.querySelector('#initiate');
 
 let currentQuestion;
-let questionIndex = 2;
+let questionIndex = 0;
 let score = 0;
 
 // to create the question element and the answer elements and the controls element
@@ -131,13 +131,35 @@ function generateQuestion() {
 
             const label = document.createElement('label');
             label.setAttribute('for', key);
-            label.innerText =  currentQuestion[key];
+            label.innerText = currentQuestion[key];
 
             answerElement.appendChild(option);
             answerElement.appendChild(label);
         }
     }
+
+    previousButton.disabled = questionIndex === 0;
+    nextButton.disabled = questionIndex === questionBank.length - 1;
 }
+
+// functions for each of the controls element
+// for previous questions
+function previousQuestion() {
+    if(questionIndex > 0) {
+        questionIndex--;
+        generateQuestion();
+    }
+}
+// for next questions
+function nextQuestion() {
+    if(questionIndex < questionBank.length - 1) {
+        questionIndex++;
+        generateQuestion();
+    }
+}
+// adding event listeners to the buttons
+previousButton.addEventListener('click', previousQuestion)
+nextButton.addEventListener('click', nextQuestion)
 
 
 // to start the quiz logic and its event
