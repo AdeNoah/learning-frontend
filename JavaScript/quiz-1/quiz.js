@@ -79,25 +79,38 @@ let questionIndex = 0;
 let score = 0;
 
 // to create the question element and the answer elements and the controls element
+// question element
 let questionElement = document.createElement('div');
 questionElement.classList.add('question-element');
 
+// answer element
 let answerElement = document.createElement('div');
 answerElement.classList.add('answer-element');
 
+// controls element
 let controlsElement = document.createElement('div');
 controlsElement.classList.add('controls')
+
+// in the controls element, we have the navigation element
+let navigationElement = document.createElement('div')
+navigationElement.classList.add('navigation-element')
+controlsElement.appendChild(navigationElement)
 
 const previousButton = document.createElement('button');
 previousButton.classList.add('previous-button');
 previousButton.innerText = '\u2190';
-controlsElement.appendChild(previousButton);
+navigationElement.appendChild(previousButton);
 
 const nextButton = document.createElement('button');
 nextButton.classList.add('next-button');
 nextButton.innerText = `\u2192`;
-controlsElement.appendChild(nextButton)
+navigationElement.appendChild(nextButton)
 
+const submitButton = document.createElement('button')
+submitButton.classList.add('submit-btn');
+submitButton.innerText = `\u21b5`;
+controlsElement.appendChild(submitButton)
+submitButton.style.display = 'none';
 
 // to display the questions
 function generateQuestion() {
@@ -139,7 +152,13 @@ function generateQuestion() {
     }
 
     previousButton.disabled = questionIndex === 0;
-    nextButton.disabled = questionIndex === questionBank.length - 1;
+    if(questionIndex === questionBank.length - 1) {
+        nextButton.setAttribute('disabled', 'true');
+        submitButton.style.display = 'block'
+    } else {
+        nextButton.removeAttribute('disabled');
+        submitButton.style.display = 'none';
+    }
 }
 
 // functions for each of the controls element
